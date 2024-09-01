@@ -1,0 +1,23 @@
+
+<app-app-bar/>
+<form class="flex p-2 pb-0 items-center gap-1 border-b border-o border-solid border-gray-300">
+  <mat-form-field appearance="outline" class="flex-grow !m-0">
+    <mat-label>Task Description</mat-label>
+    <input name="description" #txt [(ngModel)]="description" matInput placeholder="Create your task">
+    <input matInput>
+  </mat-form-field>
+  <button mat-button (click)="addTask(txt)">ADD</button>
+</form>
+<div class="px-2">
+  @for (task of taskList;track task._id){
+    <div class="hover:bg-gray-100 rounded flex justify-between items-center">
+      <mat-checkbox (change)="taskService.updateTaskStatus(task)" [checked]="task.completed" class="example-margin">{{task.description}}</mat-checkbox>
+      <mat-icon class="!text-2xl pr-2 text-gray-400 cursor-pointer hover:text-red-500"
+                (click)="taskService.removeTask(task)" fontIcon="delete" inline></mat-icon>
+    </div>
+  } @empty {
+    <div *ngIf="isLoading" class="text-center">
+      Please wait,we are loading your tasks
+    </div>
+  }
+</div>

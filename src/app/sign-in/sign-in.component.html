@@ -1,0 +1,13 @@
+<div class="h-dvh flex justify-center items-center">
+  <section class="text-center border border-solid border-gray-300 p-9 rounded">
+    <h1 class="!text-3xl">To-Do list App</h1>
+    <div class="mb-5">
+      Welcome to angular To-do list App! <br>
+      Please sign in to continue.
+    </div>
+    <div class="grid gap-2">
+    <button (click)="authService.signInWithGoogle()" mat-stroked-button>Sign in with Google</button>
+    <button class="!text-black" (click)="authService.signInWithGitHub()" mat-stroked-button>Sign in with GitHub</button>
+    </div>
+  </section>
+</div>
